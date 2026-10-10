@@ -50,14 +50,15 @@ class _PipBoyHomeState extends State<PipBoyHome> {
                     0 => StatScreen(state: state),
                     1 => InventoryScreen(state: state),
                     2 => DataScreen(state: state),
-                    3 => const MapScreen(),
-                    _ => const RadioScreen(),
+                    3 => MapScreen(state: state),
+                    _ => RadioScreen(state: state),
                   },
                 ),
               ),
               const SizedBox(height: 12),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Wrap(
+                spacing: 12,
+                runSpacing: 4,
                 children: [
                   Text('HP ${state.hp}/${state.maxHp}',
                       style: PipText.small(context)),
@@ -107,14 +108,17 @@ class _TabBar extends StatelessWidget {
                           ? PipColors.phosphor
                           : PipColors.glowGreen.withOpacity(.65)),
                 ),
-                child: Text(
-                  tabs[index],
-                  textAlign: TextAlign.center,
-                  style: PipText.body(context).copyWith(
-                    color: active
-                        ? PipColors.phosphor
-                        : PipColors.glowGreen.withOpacity(.78),
-                    fontWeight: active ? FontWeight.bold : FontWeight.normal,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    tabs[index],
+                    textAlign: TextAlign.center,
+                    style: PipText.body(context).copyWith(
+                      color: active
+                          ? PipColors.phosphor
+                          : PipColors.glowGreen.withOpacity(.78),
+                      fontWeight: active ? FontWeight.bold : FontWeight.normal,
+                    ),
                   ),
                 ),
               ),

@@ -21,7 +21,7 @@ class PipBoyState extends ChangeNotifier {
   int _caps = 1247;
   int _attributePoints = 3;
   String? _trackedQuestId = 'signal';
-  String? _waypointId;
+  String? _waypointId = 'relay';
   String _selectedLocationId = 'vault';
   String _stationId = 'classics';
   bool _radioEnabled = false;
