@@ -18,14 +18,17 @@ class TerminalPanel extends StatelessWidget {
         color: PipColors.panelDark.withValues(alpha: .76),
         border: Border.all(color: PipColors.glowGreen.withValues(alpha: .72)),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title, style: PipText.heading(context)),
-          Divider(
-              color: PipColors.glowGreen.withValues(alpha: .75), height: 24),
-          Expanded(child: child),
-        ],
+      child: Material(
+        type: MaterialType.transparency,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title, style: PipText.heading(context)),
+            Divider(
+                color: PipColors.glowGreen.withValues(alpha: .75), height: 24),
+            Expanded(child: child),
+          ],
+        ),
       ),
     );
   }
