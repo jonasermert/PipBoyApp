@@ -15,21 +15,20 @@ class TerminalPanel extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: PipColors.panelDark.withOpacity(.76),
-        border: Border.all(color: PipColors.glowGreen.withOpacity(.72)),
+        color: PipColors.panelDark.withValues(alpha: .76),
+        border: Border.all(color: PipColors.glowGreen.withValues(alpha: .72)),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Expanded(child: Text(title, style: PipText.heading(context))),
-              Text('CND OK  RAD 018  CLK 12:00', style: PipText.small(context)),
-            ],
-          ),
-          Divider(color: PipColors.glowGreen.withOpacity(.75), height: 24),
-          Expanded(child: child),
-        ],
+      child: Material(
+        type: MaterialType.transparency,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title, style: PipText.heading(context)),
+            Divider(
+                color: PipColors.glowGreen.withValues(alpha: .75), height: 24),
+            Expanded(child: child),
+          ],
+        ),
       ),
     );
   }
