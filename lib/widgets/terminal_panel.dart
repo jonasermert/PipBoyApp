@@ -21,12 +21,7 @@ class TerminalPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Expanded(child: Text(title, style: PipText.heading(context))),
-              Text('CND OK  RAD 018  CLK 12:00', style: PipText.small(context)),
-            ],
-          ),
+          Text(title, style: PipText.heading(context)),
           Divider(color: PipColors.glowGreen.withOpacity(.75), height: 24),
           Expanded(child: child),
         ],
