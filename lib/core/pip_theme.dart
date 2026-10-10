@@ -11,29 +11,32 @@ class PipColors {
   static const danger = Color(0xFFFF5F56);
 
   static List<Shadow> get textGlow => [
-        Shadow(color: glowGreen.withOpacity(.75), blurRadius: 12),
-        Shadow(color: glowGreen.withOpacity(.45), blurRadius: 24),
+        Shadow(color: glowGreen.withValues(alpha: .75), blurRadius: 12),
+        Shadow(color: glowGreen.withValues(alpha: .45), blurRadius: 24),
       ];
 }
 
 class PipText {
-  static TextStyle heading(BuildContext context) => Theme.of(context).textTheme.titleLarge!.copyWith(
-        color: PipColors.phosphor,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 2,
-        shadows: PipColors.textGlow,
-      );
+  static TextStyle heading(BuildContext context) =>
+      Theme.of(context).textTheme.titleLarge!.copyWith(
+            color: PipColors.phosphor,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2,
+            shadows: PipColors.textGlow,
+          );
 
-  static TextStyle body(BuildContext context) => Theme.of(context).textTheme.bodyLarge!.copyWith(
-        color: PipColors.glowGreen,
-        height: 1.35,
-        letterSpacing: .8,
-        shadows: PipColors.textGlow,
-      );
+  static TextStyle body(BuildContext context) =>
+      Theme.of(context).textTheme.bodyLarge!.copyWith(
+            color: PipColors.glowGreen,
+            height: 1.35,
+            letterSpacing: .8,
+            shadows: PipColors.textGlow,
+          );
 
-  static TextStyle small(BuildContext context) => Theme.of(context).textTheme.bodySmall!.copyWith(
-        color: PipColors.glowGreen.withOpacity(.86),
-        letterSpacing: .8,
-        shadows: PipColors.textGlow,
-      );
+  static TextStyle small(BuildContext context) =>
+      Theme.of(context).textTheme.bodySmall!.copyWith(
+            color: PipColors.glowGreen.withValues(alpha: .86),
+            letterSpacing: .8,
+            shadows: PipColors.textGlow,
+          );
 }

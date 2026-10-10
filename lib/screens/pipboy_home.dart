@@ -101,12 +101,12 @@ class _TabBar extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 decoration: BoxDecoration(
                   color: active
-                      ? PipColors.glowGreen.withOpacity(.16)
+                      ? PipColors.glowGreen.withValues(alpha: .16)
                       : Colors.transparent,
                   border: Border.all(
                       color: active
                           ? PipColors.phosphor
-                          : PipColors.glowGreen.withOpacity(.65)),
+                          : PipColors.glowGreen.withValues(alpha: .65)),
                 ),
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
@@ -116,7 +116,7 @@ class _TabBar extends StatelessWidget {
                     style: PipText.body(context).copyWith(
                       color: active
                           ? PipColors.phosphor
-                          : PipColors.glowGreen.withOpacity(.78),
+                          : PipColors.glowGreen.withValues(alpha: .78),
                       fontWeight: active ? FontWeight.bold : FontWeight.normal,
                     ),
                   ),

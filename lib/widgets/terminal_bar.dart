@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import '../core/pip_theme.dart';
 
 class TerminalBar extends StatelessWidget {
-  const TerminalBar({super.key, required this.label, required this.value, this.warning = false});
+  const TerminalBar(
+      {super.key,
+      required this.label,
+      required this.value,
+      this.warning = false});
 
   final String label;
   final double value;
@@ -20,16 +24,18 @@ class TerminalBar extends StatelessWidget {
           Expanded(
             child: Container(
               height: 16,
-              decoration: BoxDecoration(border: Border.all(color: color.withOpacity(.8))),
+              decoration: BoxDecoration(
+                  border: Border.all(color: color.withValues(alpha: .8))),
               alignment: Alignment.centerLeft,
               child: FractionallySizedBox(
                 widthFactor: value.clamp(0, 1),
-                child: Container(color: color.withOpacity(.74)),
+                child: Container(color: color.withValues(alpha: .74)),
               ),
             ),
           ),
           const SizedBox(width: 10),
-          Text('${(value * 100).round().toString().padLeft(3, '0')}%', style: PipText.small(context)),
+          Text('${(value * 100).round().toString().padLeft(3, '0')}%',
+              style: PipText.small(context)),
         ],
       ),
     );

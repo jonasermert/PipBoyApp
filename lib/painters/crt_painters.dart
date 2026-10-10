@@ -6,7 +6,7 @@ import '../core/pip_theme.dart';
 class ScanlinePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = Colors.black.withOpacity(.22);
+    final paint = Paint()..color = Colors.black.withValues(alpha: .22);
     for (double y = 0; y < size.height; y += 4) {
       canvas.drawRect(Rect.fromLTWH(0, y, size.width, 1.2), paint);
     }
@@ -24,10 +24,11 @@ class CrtNoisePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final random = Random(seed);
-    final paint = Paint()..color = PipColors.glowGreen.withOpacity(.026);
+    final paint = Paint()..color = PipColors.glowGreen.withValues(alpha: .026);
     for (var i = 0; i < 420; i++) {
       canvas.drawCircle(
-        Offset(random.nextDouble() * size.width, random.nextDouble() * size.height),
+        Offset(random.nextDouble() * size.width,
+            random.nextDouble() * size.height),
         random.nextDouble() * 1.4,
         paint,
       );
@@ -44,7 +45,7 @@ class VignettePainter extends CustomPainter {
     final rect = Offset.zero & size;
     final paint = Paint()
       ..shader = RadialGradient(
-        colors: [Colors.transparent, Colors.black.withOpacity(.78)],
+        colors: [Colors.transparent, Colors.black.withValues(alpha: .78)],
         stops: const [.55, 1],
       ).createShader(rect);
     canvas.drawRect(rect, paint);

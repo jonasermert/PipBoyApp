@@ -6,7 +6,7 @@ class WastelandMapPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final grid = Paint()
-      ..color = PipColors.glowGreen.withOpacity(.24)
+      ..color = PipColors.glowGreen.withValues(alpha: .24)
       ..strokeWidth = 1;
     for (double x = 0; x < size.width; x += 30) {
       canvas.drawLine(Offset(x, 0), Offset(x, size.height), grid);
@@ -21,9 +21,11 @@ class WastelandMapPainter extends CustomPainter {
       ..style = PaintingStyle.stroke;
     final path = Path()
       ..moveTo(24, size.height - 36)
-      ..quadraticBezierTo(size.width * .22, size.height * .72, size.width * .42, size.height * .58)
+      ..quadraticBezierTo(size.width * .22, size.height * .72, size.width * .42,
+          size.height * .58)
       ..lineTo(size.width * .62, size.height * .35)
-      ..quadraticBezierTo(size.width * .78, size.height * .18, size.width - 38, 44);
+      ..quadraticBezierTo(
+          size.width * .78, size.height * .18, size.width - 38, 44);
     canvas.drawPath(path, route);
 
     final marker = Paint()..color = PipColors.phosphor;
@@ -44,7 +46,7 @@ class CharacterConditionPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
     final glow = Paint()
-      ..color = PipColors.glowGreen.withOpacity(.18)
+      ..color = PipColors.glowGreen.withValues(alpha: .18)
       ..strokeWidth = 13
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round

@@ -6,7 +6,10 @@ import '../models/pip_models.dart';
 /// In-memory session shared by all five terminal screens.
 /// Widgets only render this model and forward commands to it.
 class PipBoyState extends ChangeNotifier {
-  final List<PipInventoryItem> _inventory = List.of(inventoryItems);
+  PipBoyState({List<PipInventoryItem> initialInventory = inventoryItems})
+      : _inventory = List.of(initialInventory);
+
+  final List<PipInventoryItem> _inventory;
   final Map<String, int> _special = Map.of(specialStats);
   final Map<String, Set<int>> _completed = {};
   final Set<String> _rewarded = {};
@@ -90,7 +93,9 @@ class PipBoyState extends ChangeNotifier {
   void increaseSpecial(String key) {
     if (!_special.containsKey(key) ||
         _attributePoints == 0 ||
-        _special[key]! >= 10) return;
+        _special[key]! >= 10) {
+      return;
+    }
     _special[key] = _special[key]! + 1;
     _attributePoints--;
     notifyListeners();
@@ -159,7 +164,9 @@ class PipBoyState extends ChangeNotifier {
     final quest = matches.first;
     if (index < 0 ||
         index >= quest.objectives.length ||
-        objectiveDone(id, index)) return;
+        objectiveDone(id, index)) {
+      return;
+    }
     (_completed[id] ??= {}).add(index);
     if (questDone(quest) && _rewarded.add(id)) {
       _caps += quest.reward;
@@ -189,8 +196,9 @@ class PipBoyState extends ChangeNotifier {
   }
 
   void selectStation(String id) {
-    if (!stations.any((station) => station.id == id) || _stationId == id)
+    if (!stations.any((station) => station.id == id) || _stationId == id) {
       return;
+    }
     _stationId = id;
     notifyListeners();
   }

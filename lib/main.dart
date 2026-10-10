@@ -18,9 +18,18 @@ class PipBoyApp extends StatelessWidget {
       title: 'PipBoyApp',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: PipColors.background,
-        textTheme: GoogleFonts.shareTechMonoTextTheme(ThemeData.dark().textTheme),
-        splashColor: PipColors.glowGreen.withOpacity(.15),
-        highlightColor: PipColors.glowGreen.withOpacity(.08),
+        colorScheme: const ColorScheme.dark(
+          primary: PipColors.glowGreen,
+          secondary: PipColors.phosphor,
+          surface: PipColors.panelDark,
+          onPrimary: PipColors.background,
+          onSecondary: PipColors.background,
+          onSurface: PipColors.glowGreen,
+        ),
+        textTheme:
+            GoogleFonts.shareTechMonoTextTheme(ThemeData.dark().textTheme),
+        splashColor: PipColors.glowGreen.withValues(alpha: .15),
+        highlightColor: PipColors.glowGreen.withValues(alpha: .08),
       ),
       home: const PipBoyHome(),
     );
